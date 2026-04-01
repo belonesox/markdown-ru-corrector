@@ -9,3 +9,5 @@ out
 .aider*
 wtf
 *.html
+.cache
+.vscode/freeze-markdown-styles.json 
