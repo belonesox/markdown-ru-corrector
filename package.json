@@ -2,7 +2,7 @@
     "name": "markdown-ru-corrector",
     "displayName": "Markdown Corrector",
     "description": "Fixes Russian typography and applies basic Markdown formatting heuristics",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "license": "MIT",
     "author": "belonesox",
     "publisher": "belonesox",
@@ -25,8 +25,8 @@
                 "command": "markdown-ru-corrector.fixMD",
                 "title": "MD: Fix Typography & Markup",
                 "icon": {
-                "light": "./media/icon-fix.svg",
-                "dark": "./media/icon-fix.svg"
+                    "light": "./media/icon-fix.svg",
+                    "dark": "./media/icon-fix.svg"
                 }
             }
         ],
