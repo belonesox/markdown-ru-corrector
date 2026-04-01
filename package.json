@@ -1,0 +1,67 @@
+{
+    "name": "markdown-ru-corrector",
+    "displayName": "Markdown Corrector",
+    "description": "Fixes Russian typography and applies basic Markdown formatting heuristics",
+    "version": "0.1.7",
+    "license": "MIT",
+    "author": "belonesox",
+    "publisher": "belonesox",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/belonesox/markdown-ru-corrector"
+    },
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "Formatters",
+        "Other"
+    ],
+    "icon": "media/icon.png",
+    "main": "./dist/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "markdown-ru-corrector.fixMD",
+                "title": "MD: Fix Typography & Markup",
+                "icon": {
+                "light": "./media/icon-fix.svg",
+                "dark": "./media/icon-fix.svg"
+                }
+            }
+        ],
+        "menus": {
+            "editor/title": [
+                {
+                    "command": "markdown-ru-corrector.fixMD",
+                    "group": "navigation",
+                    "when": "editorLangId == markdown"
+                }
+            ]
+        },
+        "keybindings": [
+            {
+                "command": "markdown-ru-corrector.fixMD",
+                "key": "ctrl+k f",
+                "mac": "cmd+k f",
+                "when": "editorTextFocus && editorLangId == markdown"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "test": "node ./dist/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "@types/vscode": "^1.80.0",
+        "typescript": "^5.0.0",
+        "@vscode/test-electron": "^2.4.1",
+        "@types/mocha": "^10.0.0",
+        "mocha": "^10.2.0",
+        "@types/glob": "^8.1.0",
+        "glob": "^11.0.0"
+    }
+}

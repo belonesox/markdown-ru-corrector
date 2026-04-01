@@ -1,0 +1,11 @@
+dist
+node_modules
+.session-files.md
+.vscode-test
+*.vsix
+.DS_Store
+.olegcat
+out
+.aider*
+wtf
+*.html

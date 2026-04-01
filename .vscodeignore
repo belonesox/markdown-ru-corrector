@@ -1,0 +1,10 @@
+.vscode/**
+.vscode-test/**
+src/**
+tests/**
+.github/**
+.gitignore
+tsconfig.json
+**/*.map
+*.html
+.olegcat
