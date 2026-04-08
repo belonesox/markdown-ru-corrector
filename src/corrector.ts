@@ -1,3 +1,5 @@
+import * as punycode from 'punycode';
+
 export function fixMarkdownText(text: string): string {
     let txt = text;
     const hidden: string[] = [];
@@ -6,6 +8,20 @@ export function fixMarkdownText(text: string): string {
     function r(r1: RegExp, r2: string | ((substring: string, ...args: any[]) => string)): void {
         txt = txt.replace(r1, r2 as any); 
     }
+
+    // --- Расшифровка Punycode ---
+    // Ищем домены, содержащие xn--.
+    // Регулярка захватывает весь домен (например, xn--80aswg.xn--p1ai или www.xn--d1abbgf6aiiy.xn--p1ai)
+    txt = txt.replace(/\b((?:[a-zA-Z0-9-]+\.)*xn--[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)\b/gi, (match) => {
+        try {
+            // punycode.toUnicode корректно обрабатывает домены с точками,
+            // конвертируя только те части, которые начинаются с xn--
+            return punycode.toUnicode(match);
+        } catch (e) {
+            // Если декодирование не удалось, возвращаем оригинал
+            return match;
+        }
+    });
 
     function hide(re: RegExp): void {
         r(re, (s) => {
@@ -71,5 +87,5 @@ export function fixMarkdownText(text: string): string {
         txt = txt.replace("\x01" + (hidden.length + 1) + "\x02", safeReplacement); 
     }
 
-    return txt.trim() + "\n"; 
+    return txt.replace(/\s+$/, '') + '\n';
 }

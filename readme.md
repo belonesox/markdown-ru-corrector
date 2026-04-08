@@ -15,6 +15,7 @@ If you write articles, technical documentation, or books in Russian using Markdo
 - **Markdown Heuristics:** - Fixes missing spaces in ATX headings (converts `#Heading` to `# Heading`).
   - Removes trailing whitespace (trailing spaces and tabs) across the document.
   - Collapses multiple empty lines into a single blank line.
+- **Punycode Decoding:** Automatically decodes `xn--...` domains into human-readable Unicode (e.g., Cyrillic) domains both in plain text and inside Markdown links.
 - **Safe Execution:** The extension strictly ignores content inside:
   - Code blocks (`` `inline` `` and ` ```block``` `)
   - LaTeX formulas (`$math$` and `$$math$$`)
@@ -49,6 +50,7 @@ If you write articles, technical documentation, or books in Russian using Markdo
   * Автоматически добавляет пробел после `#` в заголовках, если его там нет (`#Заголовок` → `# Заголовок`).
   * Удаляет висячие пробелы в конце строк.
   * Схлопывает три и более пустых строк подряд в две.
+* **Декодирование Punycode:** Автоматически превращает нечитаемые домены вида `xn--...` в нормальные кириллические (или другие) адреса (например, `http://xn--d1abbgf6aiiy.xn--p1ai` → `http://президент.рф`).
 
 ### Чего расширение НЕ делает (Безопасность):
 
