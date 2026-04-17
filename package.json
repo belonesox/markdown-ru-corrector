@@ -2,7 +2,7 @@
     "name": "markdown-ru-corrector",
     "displayName": "Markdown Corrector",
     "description": "Fixes Russian typography and applies basic Markdown formatting heuristics",
-    "version": "0.1.15",
+    "version": "0.1.16",
     "license": "MIT",
     "author": "belonesox",
     "publisher": "belonesox",
