@@ -11,3 +11,4 @@ wtf
 *.html
 .cache
 .vscode/freeze-markdown-styles.json 
+p.txt
